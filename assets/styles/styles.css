@@ -9,7 +9,7 @@ html {
 
 body {
     height: 100vh;
-    background: #f5ecebcf;
+    background: #ffffff;
 
 }
 
@@ -47,7 +47,7 @@ main {
 }
 
 .btn-color {
-    background: linear-gradient(to right, rgba(225, 35, 54, 0.5), rgba(150, 54, 120, 0.5));
+    background: linear-gradient(to right, rgba(230, 201, 203, 0.5), rgba(151, 78, 128, 0.5));
 }
 
 footer>div>a {
@@ -55,6 +55,9 @@ footer>div>a {
 
 }
 
+.nav-back{
+    background: linear-gradient(to right, hsl(220, 78.9, 92.5), hsl(0, 78.6, 94.5));
+}
 
 #my-footer {
     position: absolute;
@@ -65,7 +68,7 @@ footer>div>a {
     /* height:80px;  For avoiding "!important usage it's on html footer style */
     width: 100%;
     height: 2.5rem;
-    background: linear-gradient(to right, rgba(210, 153, 194, 0.5), rgba(254, 249, 215, 0.5))
+    background: linear-gradient(to right, rgba(207, 198, 204, 0.5), rgba(254, 249, 215, 0.5))
 }
 
 
@@ -134,17 +137,17 @@ legend {
         width: 60vw;
 
     }
-   
-    .card{
+
+    .card {
         margin-top: 1vh;
     }
 
-    #my-footer {        
+    #my-footer {
         position: absolute;
         bottom: -100vh;
 
     }
 
-    
+
 
 }

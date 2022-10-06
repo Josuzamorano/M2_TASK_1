@@ -15,8 +15,7 @@
 <body>
 
     <!-- Main nav -->
-    <nav class="navbar navbar-expand-md navbar-light  "
-        style=" background: linear-gradient(to right, rgba(166, 192, 254, 0.5), rgba(246, 128, 132, 0.5));">
+    <nav class="navbar navbar-expand-md navbar-light nav-back " >
         <div class="container-fluid d-flex justify-content-center ">
             <img class="navbar-brand " src="../assets/img/Logo .png" style="margin-right: 40px;">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -46,20 +45,20 @@
             </div>
         </div>
     </nav>
-    <form action="" class="" id="contact-form">
+    <form action="./show_data.html" class="" id="contact-form">
 
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Name</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="Name" placeholder="Name">
         </div>
 
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            <input type="email" class="form-control" id="exampleFormControlInput1" name="mail" placeholder="name@example.com">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3"></textarea>
         </div>
 
         <button type="submit " class="btn btn-color">Send</button>
