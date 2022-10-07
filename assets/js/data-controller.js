@@ -185,9 +185,38 @@ export class MyData {
 
     get get__pastEvents() {
 
+        let now_date = new Date(this.data.currentDate);
+        let past_events = [];
+        let event_data = new Date();
 
+        this.data.events.forEach(element => {
+            event_data = new Date(element.date);
+            if (event_data.getTime() < now_date.getTime()) {
+                past_events.push(element);
+            }
+        });
 
+        return past_events;
     }
+
+
+    get get__upcommingEvents() {
+
+        let now_date = new Date(this.data.currentDate);
+        let upcomming_events = [];
+        let event_data = new Date();
+
+        this.data.events.forEach(element => {
+            event_data = new Date(element.date);
+            if (event_data.getTime() > now_date.getTime()) {
+                upcomming_events.push(element);
+            }
+        });
+
+        return upcomming_events;
+    }
+
+
 
 
 }

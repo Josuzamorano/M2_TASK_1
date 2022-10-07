@@ -1,7 +1,22 @@
+import { MyData } from './data-controller.js';
+import {DomElement} from './view.js'
 
 
-import {MyData} from './data-controller.js';
+let datita = new MyData();
+let view   = new DomElement();
 
-const  datita = new MyData();
-console.log(datita.get__pastEvents);
+
+if( document.title == "Past Events"){
+    view.card_selection(datita.get__pastEvents);
+}
+else if( document.title == "Past Events"){
+    view.card_selection(datita.get__upcommingEvents);
+}
+else if(document.title == "Home"){
+    view.card_selection(datita.get__data.events);
+}
+else if(document.title =="Up comming Events"){
+    view.card_selection(datita.get__upcommingEvents);
+}
+
 

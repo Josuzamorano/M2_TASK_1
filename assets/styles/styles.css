@@ -8,7 +8,8 @@ html {
 
 
 body {
-    height: 100vh;
+    position: relative;
+    min-height: 100vh;
     background: #ffffff;
 
 }
@@ -25,12 +26,16 @@ main {
     margin-right: 20px;
 }
 
+
 #card-cotainer {
-    margin-top: 12vh;
+    margin-top: 11vh;
+    padding-bottom: 110px;
+    flex-wrap: wrap;
+    
 }
 
 .card {
-    margin: 0 3vw;
+    margin: 2vh 3vw;
 }
 
 #input-label {
@@ -40,7 +45,7 @@ main {
 
 
 
-#Cohort {
+.Cohort {
     position: absolute;
     right: 4vw;
 
@@ -55,8 +60,8 @@ footer>div>a {
 
 }
 
-.nav-back{
-    background: linear-gradient(to right, hsl(220, 78.9, 92.5), hsl(0, 78.6, 94.5));
+.nav-back {
+    background: linear-gradient(to right, rgba(166, 192, 254, 0.5), rgba(246, 128, 132, 0.5));
 }
 
 #my-footer {
@@ -65,7 +70,7 @@ footer>div>a {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height:80px;  For avoiding "!important usage it's on html footer style */
+    /* height:80px;  For avoiding "!important usage it's on html footer style */    
     width: 100%;
     height: 2.5rem;
     background: linear-gradient(to right, rgba(207, 198, 204, 0.5), rgba(254, 249, 215, 0.5))
@@ -144,7 +149,7 @@ legend {
 
     #my-footer {
         position: absolute;
-        bottom: -100vh;
+        /* bottom: -100vh; */
 
     }
 
