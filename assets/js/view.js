@@ -59,23 +59,29 @@ export class DomElement {
         elemnt.innerHTML = "";
     }
 
-    createCheckBox(new_id,name){
+    createCheckBox(new_id, name) {
+        let div   =  document.createElement('div');
         let checkB = document.createElement('input');
         let label = document.createElement('label');
 
-        checkB.type = "checkbox";        
-        checkB.id = "checkbox_"+ new_id;
-        label.id  = "label_"+ new_id;
-        label.value = 'hola';
+        checkB.type = "checkbox";
+        checkB.className = "checkbox";
+        checkB.value = name; 
+        div.id ="divCheckbox_" + new_id;
+        checkB.id = "checkbox_" + new_id;
+        label.id = "label_" + new_id;
+        label.textContent = name;
         
-        
-        return checkB;
+        div.appendChild(label);
+        div.appendChild(checkB);
+
+        return div;
     }
 
-    checkbox_selection(data){
+    checkbox_selection(data) {
         const fragment = document.createDocumentFragment();
         data.forEach((element, i) => {
-            fragment.append(this.createCheckBox(i,element));
+            fragment.append(this.createCheckBox(i, element));
         });
         document.getElementById("check-conteiner").appendChild(fragment);
 
