@@ -25,7 +25,9 @@ main {
 .form-check-label {
     margin-right: 20px;
 }
-
+.card .shadow-sm{
+    max-width: 3rem
+}
 
 #card-cotainer {
     margin-top: 11vh;
