@@ -26,7 +26,7 @@ main {
     margin-right: 20px;
 }
 .card .shadow-sm{
-    max-width: 3rem
+   
 }
 
 #card-cotainer {
@@ -45,6 +45,10 @@ main {
     margin-left: 10vw;
 }
 
+.card-img-top{
+    max-width:fit-content;
+    line-break: strict;
+}
 
 
 .Cohort {

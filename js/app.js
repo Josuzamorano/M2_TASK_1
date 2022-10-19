@@ -108,7 +108,7 @@ function formatString(tringa) {
 
 
 function buscarObjetoByName(data, tringa) {
-    return data.filter(data => data.name.toLowerCase().trim() === tringa);
+    return data.filter(data => data.name.toLowerCase().trim().includes(tringa) );
 }
 
 function buscarObjetoByCategory(data, tringa) {

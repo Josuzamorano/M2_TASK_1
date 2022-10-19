@@ -25,7 +25,7 @@ export class DomElement {
         body.className = "card-body";
         tittle.className = "card-title";
         text.className = "card-text";
-        anchor.className = "btn-color";
+        anchor.className = "btn btn-color";
 
 
         img.src = img_src;
