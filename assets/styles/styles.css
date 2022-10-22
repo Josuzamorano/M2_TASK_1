@@ -25,7 +25,9 @@ main {
 .form-check-label {
     margin-right: 20px;
 }
-
+.card .shadow-sm{
+   
+}
 
 #card-cotainer {
     margin-top: 11vh;
@@ -43,6 +45,10 @@ main {
     margin-left: 10vw;
 }
 
+.card-img-top{
+    max-width:fit-content;
+    line-break: strict;
+}
 
 
 .Cohort {
