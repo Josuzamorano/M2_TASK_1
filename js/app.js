@@ -9,7 +9,7 @@ datita.get__DB();
 
 
 
-setTimeout(Main, 2000); ///timer load and main invocation
+setTimeout(Main, 1000); ///timer load and main invocation
 
 function Main() {
 
@@ -34,10 +34,11 @@ function Main() {
         }
         else if (page === "details.html") {
             eventos = buscarObjetoByName(datita.get__data.events, deta.toLocaleLowerCase());
-              
+
         }
         else if (page === "stats.html") {
-            eventos = datita.get__pastEvents(datita.get__data);
+            eventos = datita.get__upcommingEvents(datita.get__data);
+            console.dir(eventos);
             view.select_statics(datita.get__pastEvents(datita.get__data));
             view.select_up_stats(datita.get__upcommingEvents(datita.get__data));
             view.select_past_stats(datita.get__pastEvents(datita.get__data));

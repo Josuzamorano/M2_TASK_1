@@ -3,7 +3,6 @@ export class DomElement {
 
 
     createCard(img_src, title_text, context_text, price_card, new_id) {
-
         let card = document.createElement('div');
         let img = document.createElement('img');
         let body = document.createElement('div');
@@ -43,20 +42,14 @@ export class DomElement {
         body.appendChild(anchor);
 
         return card;
-
-
     }
 
     card_selection(data) {
-
         const fragment = document.createDocumentFragment();
         data.forEach((element, i) => {
             fragment.append(this.createCard(element.image, element.name, element.description, element.price, i));
         });
         document.getElementById("card-cotainer").appendChild(fragment);
-
-
-
     }
 
     clearCards() {
@@ -154,7 +147,7 @@ export class DomElement {
         th.textContent = id + 1;
         td_1.textContent = data.category;
         td_2.textContent = (data.capacity * data.price)
-        td_3.textContent = data.estimate;
+        td_3.textContent = ((data.estimate / data.capacity) * 100).toFixed(2);
 
         tr.appendChild(th);
         tr.appendChild(td_1);
@@ -167,7 +160,7 @@ export class DomElement {
 
     select_up_stats(data) {
         const fragment = document.createDocumentFragment();
-        data.forEach((e, i) => {
+        this.merge_array_byCategoy(data).forEach((e, i) => {
             fragment.append(this.create_up_stats(e, i));
         });
         document.getElementById("up_stats").appendChild(fragment);
@@ -197,10 +190,48 @@ export class DomElement {
 
     select_past_stats(data) {
         const fragment = document.createDocumentFragment();
-        data.forEach((e, i) => {
+        this.merge_array_byCategoy(data).forEach((e, i) => {
             fragment.append(this.create_past_stats(e, i));
         });
         document.getElementById("past_stats").appendChild(fragment);
+    }
+
+
+    merge_array_byCategoy(data) {
+        let new_arr = []
+        let cat_arr = [];
+        new_arr.push(data[0]);
+        console.dir(`data0 ${data[0]}`);
+        data.splice(0, 1);
+        console.dir(data);
+
+        do {
+            cat_arr = data.filter(e => e.category === new_arr[new_arr.length - 1].category);
+            data.forEach((evento, i) => {
+                cat_arr.forEach(categoria => {
+                    if (categoria.id === evento.id) {
+                        delete data[i];
+                    }
+                });
+            });
+            data = data.filter(e => e !== undefined);
+            cat_arr.forEach(element => {
+                if ((element.category === new_arr[new_arr.length - 1].category) && (element.id != new_arr[new_arr.length - 1].id)) {
+                    new_arr[new_arr.length - 1].price += element.price;
+                    new_arr[new_arr.length - 1].assistance += element.assistance;
+                    new_arr[new_arr.length - 1].capacity += element.capacity;
+                    if (new_arr[0].estimate !== undefined) {
+                        new_arr[new_arr.length - 1].estimate += element.estimate;
+                    }
+                }
+            });
+            if (Object.keys(data).length > 0) {
+                new_arr.push(data[0]);
+                data.splice(0, 1);
+            }
+        }
+        while (Object.keys(data).length != 0);
+        return new_arr;
     }
 
 }
