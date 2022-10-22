@@ -2,7 +2,7 @@ export class DomElement {
     constructor() { }
 
 
-    createCard(img_src, title_text, context_text, price_card, new_id) {
+    createCard(img_src, title_text, context_text, price_card,cat, place, day, new_id, url, det) {
         let card = document.createElement('div');
         let img = document.createElement('img');
         let body = document.createElement('div');
@@ -10,6 +10,8 @@ export class DomElement {
         let text = document.createElement('p');
         let price = document.createElement('p');
         let anchor = document.createElement('a');
+
+
 
         card.id = 'card_' + new_id;
         img.id = 'imgCard_' + new_id;
@@ -27,12 +29,27 @@ export class DomElement {
         anchor.className = "btn btn-color";
 
 
+
         img.src = img_src;
         tittle.textContent = title_text;
         text.textContent = context_text;
         price.textContent = 'Picre: ' + price_card;
-        anchor.href = '../pages/details.html';
+        anchor.href = url;
         anchor.textContent = 'Details'
+
+        if (det === 1) {
+            let cate = document.createElement('p');
+            let zone = document.createElement('p');
+            let date = document.createElement('p');
+
+            cate.textContent = `Category: ${cat}` ;
+            zone.textContent = `Place ${place}`; 
+            date.textContent = `Date ${day}`;
+            
+            body.appendChild(cate);
+            body.appendChild(zone);
+            body.appendChild(cate);
+        }
 
         card.appendChild(img);
         card.appendChild(body);
@@ -41,13 +58,15 @@ export class DomElement {
         body.appendChild(price);
         body.appendChild(anchor);
 
+    
+
         return card;
     }
 
-    card_selection(data) {
+    card_selection(data, url) {
         const fragment = document.createDocumentFragment();
-        data.forEach((element, i) => {
-            fragment.append(this.createCard(element.image, element.name, element.description, element.price, i));
+        data.forEach((e, i) => {
+            fragment.append(this.createCard(e.image, e.name,e.description ,e.price,e.category, e.place, e.date,  i, url, data.length));
         });
         document.getElementById("card-cotainer").appendChild(fragment);
     }

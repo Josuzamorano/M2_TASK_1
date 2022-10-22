@@ -4,6 +4,7 @@ let detashe = "";
 let datita = new MyData();
 let view = new DomElement();
 let eventos;
+let url;
 let deta = localStorage.getItem("detashe");
 datita.get__DB();
 
@@ -23,17 +24,20 @@ function Main() {
 
         if (page === "index.html" || page === "") {
             eventos = datita.get__data.events;
-
+            url = "./pages/details.html";
             console.dir(datita.get__data);
         }
         else if (page === "past-events.html") {
             eventos = datita.get__pastEvents(datita.get__data);
+            url = "./details.html";
         }
         else if (page === "up-events.html") {
             eventos = datita.get__upcommingEvents(datita.get__data);
+            url = "./details.html";
         }
         else if (page === "details.html") {
             eventos = buscarObjetoByName(datita.get__data.events, deta.toLocaleLowerCase());
+
 
         }
         else if (page === "stats.html") {
@@ -45,7 +49,7 @@ function Main() {
         }
         console.log("eventos");
         console.dir(eventos);
-        view.card_selection(eventos);
+        view.card_selection(eventos,url);
     }
 
     view.checkbox_selection(datita.get__Categoria(eventos));
@@ -61,7 +65,6 @@ function Main() {
         detashe = document.querySelector(`#tittleCard_${e.id.slice(-1)}`).textContent;
 
         localStorage.setItem("detashe", detashe);
-        console.log(deta);
     }));
 
 
@@ -84,7 +87,7 @@ function Main() {
         }
         view.clearCards();
         eventos = buscarObjetoByCategory(eventos, b_active);
-        view.card_selection(eventos);
+        view.card_selection(eventos,url);
 
     }
 
@@ -92,18 +95,18 @@ function Main() {
 
     function search() {
         view.clearCards();
-        view.card_selection(buscarObjetoByName(eventos, formatString(text.value)));
+        view.card_selection(buscarObjetoByName(eventos, formatString(text.value)),url);
     }
 
 
     function logKey(e) {
         if (text.value.trim() === "") {
             view.clearCards();
-            view.card_selection(eventos);
+            view.card_selection(eventos,url);
         }
         else if (e.code === 'Enter') {
             view.clearCards();
-            view.card_selection(buscarObjetoByName(eventos, formatString(text.value)));
+            view.card_selection(buscarObjetoByName(eventos, formatString(text.value)),url);
         }
     }
     function formatString(tringa) {
