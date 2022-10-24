@@ -25,9 +25,7 @@ main {
 .form-check-label {
     margin-right: 20px;
 }
-.card .shadow-sm{
-   
-}
+
 
 #card-cotainer {
     margin-top: 11vh;
@@ -47,6 +45,8 @@ main {
 
 .card-img-top{
     max-width:fit-content;
+    max-height: 220px;
+    min-height: 220px;
     line-break: strict;
 }
 
@@ -70,13 +70,11 @@ footer>div>a {
     background: linear-gradient(to right, rgba(166, 192, 254, 0.5), rgba(246, 128, 132, 0.5));
 }
 
-#my-footer {
-    position: absolute;
-    bottom: 0;
+.footer-class {
+    position: absolute;    
     display: flex;
     justify-content: center;
-    align-items: center;
-    /* height:80px;  For avoiding "!important usage it's on html footer style */    
+    align-items: center;   
     width: 100%;
     height: 2.5rem;
     background: linear-gradient(to right, rgba(207, 198, 204, 0.5), rgba(254, 249, 215, 0.5))
@@ -153,7 +151,7 @@ legend {
         margin-top: 1vh;
     }
 
-    #my-footer {
+   .footer-class {
         position: absolute;
         /* bottom: -100vh; */
 
@@ -161,4 +159,142 @@ legend {
 
 
 
+}
+
+
+:root {
+    --surface-color: #fff;
+    --curve: 40;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #fef8f8;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 4rem 5vw;
+    padding: 0;
+    list-style-type: none;
+}
+
+.card {
+    flex: 0 0 100%;
+    position: relative;
+    display: block;
+    height: 100%;
+    border-radius: calc(var(--curve) * 1px);
+    overflow: hidden;
+    text-decoration: none;
+    max-width: 300px;
+    
+    
+}
+.card-text{
+height: 80px;
+}
+.card-body{
+    display: flex;
+    height: 250px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+#check-conteiner{
+    gap: 10px;
+}
+
+.card__image {
+    width: 100%;
+    height: auto;
+}
+
+.card__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border-radius: calc(var(--curve) * 1px);
+    background-color: var(--surface-color);
+    transform: translateY(100%);
+    transition: .2s ease-in-out;
+}
+
+.card:hover .card__overlay {
+    transform: translateY(0);
+}
+
+.card__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding: 2em;
+    border-radius: calc(var(--curve) * 1px) 0 0 0;
+    background-color: var(--surface-color);
+    transform: translateY(-100%);
+    transition: .2s ease-in-out;
+}
+
+.card__arc {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    z-index: 1;
+}
+
+    .card__arc path {
+        fill: var(--surface-color);
+       
+    }
+
+.card:hover .card__header {
+    transform: translateY(0);
+}
+
+.card__thumb {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.card__title {
+    font-size: 1em;
+    margin: 0 0 .3em;
+    color: #6A515E;
+}
+
+.card__tagline {
+    display: block;
+    margin: 1em 0;
+    font-family: "MockFlowFont";
+    font-size: .8em;
+    color: #D7BDCA;
+}
+
+.card__status {
+    font-size: .8em;
+    color: #D7BDCA;
+}
+
+.card__description {
+    padding: 0 2em 2em;
+    margin: 0;
+    color: #D7BDCA;
+    font-family: "MockFlowFont";
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
 }
