@@ -4,7 +4,7 @@ export class MyData {
 
     constructor() {
         this.data;
-
+        this.db = 'https://mind-hub.up.railway.app/amazing'; 
     }
 
 
@@ -59,7 +59,7 @@ export class MyData {
 
 
     get__DB = async () => {
-        fetch('https://mind-hub.up.railway.app/amazing')
+        fetch(this.db)
             .then(res => res.json())
             .then((dat) => {
                 this.data = dat;
