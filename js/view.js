@@ -29,7 +29,7 @@ export class DomElement {
         img.src = img_src;
         tittle.textContent = title_text;
         text.textContent = context_text;
-        price.textContent = 'Picre: ' + price_card;
+        price.textContent = 'Price: ' + price_card;
         anchor.href = url;
         anchor.textContent = 'Details'
 
@@ -39,14 +39,15 @@ export class DomElement {
             let date = document.createElement('p');
 
             cate.textContent = `Category: ${cat}` ;
-            zone.textContent = `Place ${place}`; 
-            date.textContent = `Date ${day}`;
+            zone.textContent = `Place: ${place}`; 
+            date.textContent = (`Date: ${day}`).slice(0,16);
+            
 
             anchor.style ="display: none;"
-            
+            console.dir(date);
             body.appendChild(cate);
             body.appendChild(zone);
-            body.appendChild(cate);
+            body.appendChild(date)
         }
 
         card.appendChild(img);
