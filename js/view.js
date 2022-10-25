@@ -11,8 +11,6 @@ export class DomElement {
         let price = document.createElement('p');
         let anchor = document.createElement('a');
 
-
-
         card.id = 'card_' + new_id;
         img.id = 'imgCard_' + new_id;
         body.id = 'bodyCard_' + new_id;
@@ -27,8 +25,6 @@ export class DomElement {
         tittle.className = "card-title";
         text.className = "card-text";
         anchor.className = "btn btn-color";
-
-
 
         img.src = img_src;
         tittle.textContent = title_text;
@@ -45,6 +41,8 @@ export class DomElement {
             cate.textContent = `Category: ${cat}` ;
             zone.textContent = `Place ${place}`; 
             date.textContent = `Date ${day}`;
+
+            anchor.style ="display: none;"
             
             body.appendChild(cate);
             body.appendChild(zone);
@@ -56,9 +54,7 @@ export class DomElement {
         body.appendChild(tittle);
         body.appendChild(text);
         body.appendChild(price);
-        body.appendChild(anchor);
-
-    
+        body.appendChild(anchor);   
 
         return card;
     }
@@ -104,8 +100,7 @@ export class DomElement {
 
     }
 
-    create_statics_stats(max_percent, min_percent, max_cap) {
-        const stat_conteiner = document.querySelector("#statics_stats");
+    create_statics_stats(max_percent, min_percent, max_cap) {     
         let tr = document.createElement('tr');
         let th = document.createElement('th');
         let td_1 = document.createElement('td');
@@ -156,7 +151,6 @@ export class DomElement {
     }
 
     create_up_stats(data, id) {
-        const stat_conteiner = document.querySelector("#up_stats");
         let tr = document.createElement('tr');
         let th = document.createElement('th');
         let td_1 = document.createElement('td');
@@ -186,8 +180,7 @@ export class DomElement {
     }
 
 
-    create_past_stats(data, id) {
-        const stat_conteiner = document.querySelector("#up_stats");
+    create_past_stats(data, id) {        
         let tr = document.createElement('tr');
         let th = document.createElement('th');
         let td_1 = document.createElement('td');
@@ -222,7 +215,6 @@ export class DomElement {
         new_arr.push(data[0]);
         console.dir(`data0 ${data[0]}`);
         data.splice(0, 1);
-        console.dir(data);
 
         do {
             cat_arr = data.filter(e => e.category === new_arr[new_arr.length - 1].category);

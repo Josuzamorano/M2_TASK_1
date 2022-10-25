@@ -61,15 +61,15 @@ function Main() {
     button.addEventListener("click", search);
     checkB.addEventListener("click", checkSearch);
     text.addEventListener('keyup', logKey);
-    anc.forEach(e => e.addEventListener("click", element => {
+    anc.forEach(e => e.addEventListener("click", btn_detashe));
+
+
+
+    function btn_detashe() {
         detashe = document.querySelector(`#tittleCard_${e.id.slice(-1)}`).textContent;
-
         localStorage.setItem("detashe", detashe);
-    }));
+    }
 
-
-
-    console.dir(eventos);
     function checkSearch() {
         let b_active = [];
 
@@ -80,7 +80,6 @@ function Main() {
                 return;
             }
         });
-        console.dir(b_active);
         if (b_active.length == 0) {
             Router();
             return;
@@ -109,31 +108,31 @@ function Main() {
             view.card_selection(buscarObjetoByName(eventos, formatString(text.value)),url);
         }
     }
-    function formatString(tringa) {
+    function formatString(string_a) {
 
-        if (tringa === '') {
+        if (string_a === '') {
             return;
         }
-        else if (tringa.match(/\d+/g)) {
+        else if (string_a.match(/\d+/g)) {
             alert('Los nombres de eventos no tienen numeros ' + '\uD83D\uDD14');
             return;
         }
         else {
             console.log("aca")
-            tringa = tringa.toLowerCase().trim();
-            console.log(tringa);
-            return tringa;
+            string_a = string_a.toLowerCase().trim();
+            console.log(string_a);
+            return string_a;
         }
     }
 
 
-    function buscarObjetoByName(data, tringa) {
-        return data.filter(data => data.name.toLowerCase().trim().includes(tringa));
+    function buscarObjetoByName(data, string_a) {
+        return data.filter(data => data.name.toLowerCase().trim().includes(string_a));
     }
 
-    function buscarObjetoByCategory(data, tringa) {
+    function buscarObjetoByCategory(data, string_a) {
         let eventosARR = [];
-        tringa.forEach(e => {
+        string_a.forEach(e => {
             data.forEach(data => {
                 if (data.category === e) {
                     eventosARR.push(data);

@@ -4,7 +4,7 @@ export class MyData {
 
     constructor() {
         this.data;
-        this.db = 'https://mind-hub.up.railway.app/amazing'; 
+        this.db_path = 'https://mh-amazing.herokuapp.com/amazing'; 
     }
 
 
@@ -31,7 +31,6 @@ export class MyData {
 
 
     get__upcommingEvents(in_data) {
-
         let now_date = new Date(in_data.date);
         let upcomming_events = [];
         let event_data = new Date();
@@ -59,16 +58,12 @@ export class MyData {
 
 
     get__DB = async () => {
-        fetch(this.db)
+        fetch(this.db_path)
             .then(res => res.json())
             .then((dat) => {
                 this.data = dat;
             }).catch(err => { console.error(err) });
     }
-
-
-
-
 
 
 
